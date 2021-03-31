@@ -1,0 +1,29 @@
+﻿@model WebApplication1_client.Models.AddProductViewModel
+@{
+    ViewBag.Title = "GetProduct1";
+}
+
+<h2>Fetch and Update Product</h2>
+<br />
+
+@using (Html.BeginForm("GetProduct", "Home", FormMethod.Post))
+{
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label>Product ID:</label>
+            <input id="pid" name="pid" type="text" placeholder="Product ID" asp-for="ProductId" class="form-control" />
+
+        </div>
+        <button type="submit" class="btn btn-primary">Get Details</button>
+        <br />
+        <br />
+        <span class="text-danger">@ViewBag.msg</span>
+
+
+    </div>
+    
+</div>
+}
+

@@ -1,0 +1,100 @@
+﻿@model WebApiApplication1.Models.Product
+
+@{
+    ViewBag.Title = "Update Product";
+}
+
+<h2>Update Product</h2>
+
+@using (Html.BeginForm("UpdateProduct", "Home", FormMethod.Get))
+{
+<div>
+    
+    <hr />
+
+    <div class="row">
+        <div class="col-md-4">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Username" class="control-label">Product ID:</label>
+                <input type="text" name="pid" value="@Model.ProductId" asp-for="ProductId" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Name:</label>
+                <input type="text" name="pname" value="@Model.ProductName" asp-for="ProductName" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="balance" class="control-label">Price:</label>
+                <input type="text" name="price" value="@Model.ProductPrice" asp-for="ProductPrice" class="form-control" />
+                <span asp-validation-for="balance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bank" class="control-label">Quantity:</label>
+                <input type="text" name="qnt" value="@Model.Quantity" asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Bank" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bank" class="control-label">Description:</label>
+                <input type="text" name="des" value="@Model.Description" asp-for="Description" class="form-control" />
+                <span asp-validation-for="Bank" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--<dl class="dl-horizontal">
+
+            <dt>
+                Product ID:
+            </dt>
+
+            <dd>
+                <input type="text" name="pid" value="@Model.ProductId" />
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </dt>
+
+            <dd>
+                <input type="text" name="pname" value="@Model.ProductName" />
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ProductPrice)
+            </dt>
+
+            <dd>
+                <input type="text" name="price" value="@Model.ProductPrice" />
+
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </dt>
+
+            <dd>
+                <input type="text" name="qnt" value="@Model.Quantity" />
+
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                <input type="text" name="des" value="@Model.Description" />
+
+            </dd>
+
+        </dl>
+        <button type="submit" class="btn btn-default">Update product</button>-->
+    </div>
+    }

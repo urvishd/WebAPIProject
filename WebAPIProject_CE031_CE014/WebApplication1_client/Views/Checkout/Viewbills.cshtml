@@ -1,0 +1,57 @@
+﻿@model IEnumerable<WebApiApplication1.Models.Bill>
+
+@{
+    ViewBag.Title = "Viewbills";
+}
+
+<h2>All Bills</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Bill ID
+        </th>
+
+        <th>
+            Name
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Total
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.id)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.date)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.total)
+    </td>
+    <td>
+
+        @Html.ActionLink(linkText: "View",
+    actionName: "Billdetail",
+    controllerName: "Checkout",
+    routeValues: new
+    {
+        bid = item.id,
+    },
+    htmlAttributes: null)
+    </td>
+</tr>
+}
+
+</table>

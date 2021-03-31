@@ -1,0 +1,88 @@
+﻿@model IEnumerable<WebApiApplication1.Models.Product>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+</style>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('stat');
+    const bid = urlParams.get('billid1');
+    //alert("hello");
+    if (myParam == "addsuccess") {
+        alert("Product added successfully!!");
+    }
+    else if (myParam == "deletesuccess") {
+        alert("Product Deleted Successfully!");
+    }
+    else if (myParam == "billsuccess") {
+        alert("Your bill is stored and Bill id is:" + bid);
+    }
+    else if (myParam == "cartempty") {
+        alert("Please enter items to cart to Checkout")
+    }
+</script>
+
+
+
+<br />
+<br />
+<br />
+
+<h1>All Products</h1>
+<br />
+
+
+@foreach (var item in Model)
+{
+    using (Html.BeginForm("Index", "Checkout", FormMethod.Post))
+    {
+        <dl class="row">
+            <dt class="col-sm-2">
+                Product ID:
+            </dt>
+            <dd class="col-sm-10">
+                @item.ProductId
+            </dd>
+
+            <dt class="col-sm-2">
+                Product Name:
+            </dt>
+            <dd class="col-sm-10">
+                @item.ProductName
+            </dd>
+
+            <dt class="col-sm-2">
+                Price:
+            </dt>
+            <dd class="col-sm-10">
+                @item.ProductPrice
+            </dd>
+
+            <dt class="col-sm-2">
+                Quantity:
+            </dt>
+            <dd class="col-sm-10">
+                @item.Quantity
+            </dd>
+
+            <dt class="col-sm-2">
+                Purchased Quantity:
+            </dt>
+            <dd class="col-sm-10">
+                <input type="number" name="quantity" id="quantity" min="1" max="@item.Quantity" required />
+            </dd>
+
+
+
+        </dl>
+        <input type="hidden" id="pid1" name="pid1" value="@item.ProductId">
+        <input type="hidden" id="pprice" name="pprice" value="@item.ProductPrice">
+        <input type="hidden" id="avl" name="avl" value="@item.Quantity">
+        <button type="submit" class="btn btn-default">Add to Cart</button>
+    }
+    <br />
+}
+
+

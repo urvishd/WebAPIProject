@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "DeleteProduct1";
+}
+
+<h2>Delete Product using Product ID</h2>
+
+@using (Html.BeginForm("DeleteProduct", "Home", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-4">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label>Product ID:</label>
+                <input id="pid" name="pid" type="text" placeholder="Product ID" asp-for="ProductId" class="form-control" />
+
+            </div>
+            <button type="submit" class="btn btn-primary">Delete</button>
+            <br />
+            <br />
+            <span class="text-danger">@ViewBag.msg</span>
+
+
+        </div>
+
+    </div>
+}
